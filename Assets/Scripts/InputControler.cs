@@ -19,6 +19,9 @@ public class InputControler : MonoBehaviour
 
     [SerializeField, Range(0.0f, 1.0f)] float distanceToGround;
 
+    bool doChangeState = false;
+    float MouseVertical = 0f;
+
     private void OnAnimatorIK(int layerIndex)
     {
         if(trsLookAt != null)
@@ -71,6 +74,7 @@ public class InputControler : MonoBehaviour
         moving();
         doDance();
         activeDance();
+        checkAim();
     }
 
 
@@ -164,5 +168,61 @@ public class InputControler : MonoBehaviour
         {
             anim.Play("Move");
         }
+    }
+
+    private void checkAim()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftControl) && doChangeState == false)
+        {
+            if(Cursor.lockState == CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.Locked;//마우스 커서를 보이지않게함
+                //layer weight를 1로
+                StartCoroutine(changeState(true));
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.None;
+                //layer weight를 0으로
+                StartCoroutine (changeState(false));
+            }
+        }
+
+        if(Cursor.lockState == CursorLockMode.Locked)
+        {
+            MouseVertical += Input.GetAxis("Mouse Y") * Time.deltaTime;
+            MouseVertical = Mathf.Clamp(MouseVertical, -1f, 1f);
+            anim.SetFloat("MouseVertical", MouseVertical);
+
+            if(Input.GetMouseButtonDown(0))
+            {
+                //anim.Play("원하는 애니메이션 이름");
+            }
+        }
+    }
+
+    IEnumerator changeState(bool _upper)
+    {
+        float timer = 0;
+        doChangeState = true;
+        if(_upper)
+        {
+            while(anim.GetLayerWeight(1) < 1.0f)
+            {
+                timer += Time.deltaTime * 5f;
+                anim.SetLayerWeight(1, Mathf.Lerp(0f, 1f, timer));
+                yield return null;
+            }
+        }
+        else
+        {
+            while(anim.GetLayerWeight(1) > 0f)
+            {
+                timer += Time.deltaTime * 5f;
+                anim.SetLayerWeight(1,Mathf.Lerp(1f, 0f, timer));
+                yield return null;
+            }
+        }
+        doChangeState = false;
     }
 }

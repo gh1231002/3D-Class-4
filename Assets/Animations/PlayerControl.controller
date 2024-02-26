@@ -9,15 +9,15 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 951ade36f64a6c04684c5d29c69fcea3, type: 2}
-    m_Threshold: 0
+    m_Motion: {fileID: 7400000, guid: fa3958a2d2f7b9d4e9b57d9ab02c44a3, type: 2}
+    m_Threshold: -1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: SpeedVertical
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: fa3958a2d2f7b9d4e9b57d9ab02c44a3, type: 2}
+    m_Motion: {fileID: 7400000, guid: 951ade36f64a6c04684c5d29c69fcea3, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -26,9 +26,9 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: MouseVertical
   m_BlendParameterY: SpeedVertical
-  m_MinThreshold: 0
+  m_MinThreshold: -1
   m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
+  m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!1102 &-8684137708546257099
@@ -235,19 +235,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: SpeedHorizontal
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: MouseVertical
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -264,7 +264,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Top
     m_StateMachine: {fileID: 8667723053106082008}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: 64327662780f9804d86591a4cc2f7fba, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
