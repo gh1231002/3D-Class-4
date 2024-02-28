@@ -1185,8 +1185,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOfDay: 0
-  isNight: 1
-  AutoChange: 1
+  isNight: 0
+  AutoChange: 0
   dayTime: 14
   nightTime: 23
 --- !u!4 &1697284343

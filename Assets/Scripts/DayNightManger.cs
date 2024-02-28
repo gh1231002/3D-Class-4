@@ -62,7 +62,7 @@ public class DayNightManger : MonoBehaviour
         timeOfDay %= 24;//0 ~ 24 사이의 값만 저장
         if(AutoChange == true)
         {
-            timeOfDay += Time.deltaTime;//시간이 자동으로 증가
+            //timeOfDay += Time.deltaTime;//시간이 자동으로 증가
             if (timeOfDay > dayTime)//14
             {
                 isNight = true;
